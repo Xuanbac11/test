@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background: yellow;
+            border: none;
+            cursor: pointer;
+            transform: scale(1.2);
+            margin-top: 40px;
+            color: red;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" onclick="chonbai()">Chọn bài thi</button>
+    <h2 id="baithi"></h2>
+    <script>
+        var baithi = document.querySelector("#baithi");
+        var tan = ['Trung bình tấn',
+            'Đinh tấn',
+            'Tam giác tấn']
+        var traiphai = ['trái', 'phải']
+        var chem = ['1', '2', '3', '4']
+        var dam = ['thẳng', 'thấp', 'múc', 'móc', 'bật ngược']
+        var rd_tan
+        var rd_traiphai
+        var rd_chem
+        var rd_dam
+        var chonbai = () => {
+            daobai()
+            var baithi_chem = "Bài tấn chém : " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " chém số " + chem[rd_chem];
+            daobai()
+            var baithi_dam = "Bài tấn đấm: " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " đấm " + dam[rd_dam];
+            baithi.innerHTML = baithi_chem + "</br>" + baithi_dam;
+        }
+        var daobai = () => {
+            rd_tan = Math.round(Math.random() * 2)
+            rd_traiphai = Math.round(Math.random() * 1)
+            rd_chem = Math.round(Math.random() * 3)
+            rd_dam = Math.round(Math.random() * 4)
+        }
+    </script>
+</body>
+
+</html>
