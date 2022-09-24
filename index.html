@@ -12,16 +12,28 @@
             border: none;
             cursor: pointer;
             transform: scale(1.2);
-            margin-top: 40px;
+            margin-top: 10px;
             color: red;
             padding: 5px;
+            margin-left: 50px;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h4 {
+            color: red;
         }
     </style>
 </head>
 
 <body>
+    <img src="thao.jpg" alt="">
+    <h2>Vovinam - Việt Võ Đạo</h2>
     <button type="button" onclick="chonbai()">Chọn bài thi</button>
-    <h2 id="baithi"></h2>
+    <h4 id="baithi"></h4>
     <script>
         var baithi = document.querySelector("#baithi");
         var tan = ['Trung bình tấn',
@@ -30,22 +42,31 @@
         var traiphai = ['trái', 'phải']
         var chem = ['1', '2', '3', '4']
         var dam = ['thẳng', 'thấp', 'múc', 'móc', 'bật ngược']
-        var rd_tan
-        var rd_traiphai
-        var rd_chem
-        var rd_dam
+        var gat = ['1', '2', '3', '4']
+        var cho = ['1', '2']
+        var rd_tan, rd_traiphai, rd_chem, rd_dam, rd_gat, rd_cho
+
         var chonbai = () => {
             daobai()
-            var baithi_chem = "Bài tấn chém : " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " chém số " + chem[rd_chem];
+            var baithi_chem = "Bài chém : " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " - chém số " + chem[rd_chem];
             daobai()
-            var baithi_dam = "Bài tấn đấm: " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " đấm " + dam[rd_dam];
-            baithi.innerHTML = baithi_chem + "</br>" + baithi_dam;
+            var baithi_dam = "</br>" + "Bài đấm: " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " - đấm " + dam[rd_dam];
+            daobai()
+            var baithi_gat = "</br>" + "Bài gạt: " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " - gạt số " + gat[rd_gat];
+            daobai()
+            var baithi_tro = "</br>" + "Bài chỏ: " + tan[rd_tan] + " " + traiphai[rd_traiphai] + " - chỏ số " + cho[rd_cho];
+
+            baithi.innerHTML = baithi_chem + "</br>" + baithi_dam + "</br>" + baithi_gat + "<br>" + baithi_tro;
+
+
         }
         var daobai = () => {
             rd_tan = Math.round(Math.random() * 2)
             rd_traiphai = Math.round(Math.random() * 1)
             rd_chem = Math.round(Math.random() * 3)
             rd_dam = Math.round(Math.random() * 4)
+            rd_gat = Math.round(Math.random() * 3)
+            rd_cho = Math.round(Math.random() * 1)
         }
     </script>
 </body>
